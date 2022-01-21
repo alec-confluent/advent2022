@@ -4,6 +4,31 @@ import (
 	"fmt"
 )
 
+/**********************************************************************************************
+*
+* Excercise
+*
+***********************************************************************************************/
+
+// Link: https://leetcode.com/problems/add-two-numbers/
+
+// Description:
+
+// You are given two non-empty linked lists representing two non-negative integers.
+// The digits are stored in reverse order, and each of their nodes contains a single digit.
+// Add the two numbers and return the sum as a linked list.
+
+// You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+/**********************************************************************************************
+*
+* Solution Body
+*
+***********************************************************************************************/
+
+/**
+ * @description Returns a list of combined linked nodes in reverse order
+ */
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 	head := &ListNode{}
@@ -53,6 +78,9 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return head
 }
 
+/**
+ * @description Creates a node
+ */
 func makeNode(arr []int) *ListNode {
 
 	head := &ListNode{arr[0], nil}
@@ -67,12 +95,23 @@ func makeNode(arr []int) *ListNode {
 	return head
 }
 
-// do not copy //
+/**********************************************************************************************
+*
+* Non-solution code for running locally
+*
+***********************************************************************************************/
+
+/**
+ * @description A ListNode struct
+ */
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
 
+/**
+ * @description Main execution block
+ */
 func main() {
 
 	l1 := makeNode1([]int{6, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1})
@@ -85,6 +124,9 @@ func main() {
 
 }
 
+/**
+ * @description Node creator to make local testing possible
+ */
 func makeNode1(arr []int) *ListNode {
 
 	head := &ListNode{arr[0], nil}
