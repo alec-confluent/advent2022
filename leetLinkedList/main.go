@@ -1,23 +1,37 @@
 package main
 
 import (
-	"fmt"
 	"math/rand"
 )
 
-// optimized for memory utilization
-// else we could just index each node value in an array
+/**********************************************************************************************
+*
+* Excercise
+*
+***********************************************************************************************/
 
-type Solution struct {
-	head       *ListNode
-	chainDepth int
-}
+// Link: https://leetcode.com/problems/linked-list-random-node/
 
-func Constructor(head *ListNode) Solution {
+// Description:
 
-	return Solution{head, getDepth(head)}
-}
+// Given a singly linked list, return a random node's value from the linked list.
+// Each node must have the same probability of being chosen.
 
+// Implement the Solution class:
+
+//     Solution(ListNode head) Initializes the object with the head of the singly-linked list head.
+//     int getRandom() Chooses a node randomly from the list and returns its value. All the nodes of
+//     the list should be equally likely to be chosen.
+
+/**********************************************************************************************
+*
+* Solution Body
+*
+***********************************************************************************************/
+
+/**
+ * @description Returns a random list nodes value
+ */
 func (this *Solution) GetRandom() int {
 
 	var node = this.head
@@ -30,6 +44,9 @@ func (this *Solution) GetRandom() int {
 	return node.Val
 }
 
+/**
+ * @description Determines how many links there are in the chain
+ */
 func getDepth(node *ListNode) int {
 
 	var i int = 1
@@ -42,20 +59,32 @@ func getDepth(node *ListNode) int {
 	return i
 }
 
-// do not copy //
-
-func main() {
-
-	for i := 1; i < 20; i++ {
-		fmt.Println(rand.Intn(5))
-	}
+/**
+ * @description Solution definition
+ */
+type Solution struct {
+	head       *ListNode
+	chainDepth int
 }
 
 /**
- * Your Solution object will be instantiated and called as such:
- * obj := Constructor(head);
- * param_1 := obj.GetRandom();
+ * @description Solution constructor
  */
+func Constructor(head *ListNode) Solution {
+
+	return Solution{head, getDepth(head)}
+}
+
+/**********************************************************************************************
+*
+* Non-solution code for running locally
+*
+***********************************************************************************************/
+
+func main() {
+
+	// DO NOTHING
+}
 
 /**
  * Definition for singly-linked list.
