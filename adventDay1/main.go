@@ -39,7 +39,7 @@ type Item struct {
 // the main dingy
 func main() {
 
-	// check(err) // does some error handling
+	// local utility package for getting data from advent of code website
 	data := adventofcode.GetData("https://adventofcode.com/2022/day/1/input")
 
 	// fmt.Println("response data:")
