@@ -14,16 +14,18 @@ import (
 
 var client http.Client
 
+// struct for elfs
 type Elf struct {
 	totalCalories int64
-	items         []Item
+	bag           []Item
 }
 
+// adds up calories for items in the bag
 func (el *Elf) getTotalCalories() int64 {
 
 	var total int64 = 0
 
-	for _, item := range el.items {
+	for _, item := range el.bag {
 		total += item.calories
 		// fmt.Println("total currently", total)
 	}
@@ -32,10 +34,12 @@ func (el *Elf) getTotalCalories() int64 {
 	return total
 }
 
+// definition of an item
 type Item struct {
 	calories int64
 }
 
+// the main dingy
 func main() {
 
 	// check(err) // does some error handling
@@ -50,6 +54,7 @@ func main() {
 	fmt.Println("The fattest elf has ", fattest.totalCalories, " total calories in tow.")
 }
 
+// finds the elf with the most calories in the tuck
 func findFatty(elves []Elf) Elf {
 
 	fattest := elves[0]
@@ -69,6 +74,7 @@ func findFatty(elves []Elf) Elf {
 	return fattest
 }
 
+// parses the excercise data into structs
 func readData(data string) []Elf {
 
 	scanner := bufio.NewScanner(strings.NewReader(data))
@@ -84,7 +90,7 @@ func readData(data string) []Elf {
 
 		if calories, err := strconv.ParseInt(item, 10, 64); err == nil {
 
-			curr.items = append(curr.items, Item{calories})
+			curr.bag = append(curr.bag, Item{calories})
 		} else {
 
 			elves = append(elves, curr)
@@ -95,6 +101,7 @@ func readData(data string) []Elf {
 	return elves
 }
 
+// gets the excercise data from the code advent site
 func getData(address string) string {
 
 	// open up the json file to get our session key
