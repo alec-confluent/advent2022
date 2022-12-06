@@ -105,7 +105,7 @@ func readData(data string) []Elf {
 func getData(address string) string {
 
 	// open up the json file to get our session key
-	jsonFile, err := os.Open("info.json")
+	jsonFile, err := os.Open("../info.json")
 
 	if err != nil {
 		log.Fatalf("Error... %s", err.Error())
