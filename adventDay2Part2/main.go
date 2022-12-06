@@ -60,9 +60,9 @@ var winningChoices = map[string]string{
 
 // maps the numeric value to the selection
 var losingChoices = map[string]string{
-	"rock":     "scissors",
 	"scissors": "paper",
 	"paper":    "rock",
+	"rock":     "scissors",
 }
 
 // determines if the player won, lost or tied the round
