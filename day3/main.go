@@ -52,21 +52,11 @@ func readData(data string) int {
 // checks if any rune from a is contained in b
 func findAinB(a string, b string) string {
 	for _, letter := range a {
-		if contains(b, letter) {
+		if strings.Contains(b, string(letter)) {
 			return string(letter)
 		}
 	}
 	return ""
-}
-
-// checks if the rune is in the string
-func contains(s string, r rune) bool {
-	for _, l := range s {
-		if r == l {
-			return true
-		}
-	}
-	return false
 }
 
 // im lazy so im not gonna type the alphabet => number in a map literal
